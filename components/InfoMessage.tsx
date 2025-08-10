@@ -1,6 +1,6 @@
-import React from 'react';
-import { View, Text, StyleSheet, ViewStyle, TextStyle } from 'react-native';
-import { useThemeColor } from '@/hooks/useThemeColor';
+import React from "react";
+import { View, Text, StyleSheet, ViewStyle, TextStyle } from "react-native";
+import { useThemeColor } from "@/hooks/useThemeColor";
 
 type InfoMessageProps = {
   text: string;
@@ -15,22 +15,22 @@ type InfoMessageProps = {
 };
 
 export default function InfoMessage({
-                                      text,
-                                      lightColor,
-                                      darkColor,
-                                      withBorder = true,
-                                      style,
-                                      textStyle,
-                                    }: InfoMessageProps) {
+  text,
+  lightColor,
+  darkColor,
+  withBorder = true,
+  style,
+  textStyle,
+}: InfoMessageProps) {
   // Use the app’s themed colors (and accept light/dark overrides like other components)
-  const tint = useThemeColor({ light: lightColor, dark: darkColor }, 'tint');
-  const textColor = useThemeColor({}, 'text');
-  
+  const tint = useThemeColor({ light: lightColor, dark: darkColor }, "tint");
+  const textColor = useThemeColor({}, "text");
+
   return (
     <View
       style={[
         styles.container,
-        { backgroundColor: addAlpha(tint, 0.12) },     // subtle tinted background
+        { backgroundColor: addAlpha(tint, 0.12) }, // subtle tinted background
         withBorder && { borderColor: tint, borderWidth: 1 },
         style,
       ]}
@@ -63,5 +63,3 @@ function addAlpha(hex: string, alpha: number) {
   const b = parseInt(m[3], 16);
   return `rgba(${r}, ${g}, ${b}, ${a})`;
 }
-
-
