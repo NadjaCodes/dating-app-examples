@@ -34,7 +34,7 @@ export default function Profile() {
       </ThemedView>
       <InfoMessage
         text={
-          "Please answer 3 prompts - your new match is excited to learn about you!"
+          "Complete 3 prompts to unlock your profile — your future match is already curious!"
         }
       />
       <ThemedView style={styles.outerView}>
@@ -45,22 +45,20 @@ export default function Profile() {
               name="questionmark.circle.fill"
               color="#ad7aff"
             />
-            <ThemedText type="subtitle">Answer questions</ThemedText>
+            <ThemedText type="subtitle">Answer prompts</ThemedText>
           </View>
         </Link>
       </ThemedView>
       <ThemedView style={styles.outerView}>
         <View style={styles.innerView}>
           <IconSymbol size={32} name="mic.circle.fill" color="#ad7aff" />
-          <ThemedText type="subtitle">Add a 15s voice memo</ThemedText>
+          <ThemedText type="subtitle">Add 15-sec voice clip</ThemedText>
         </View>
       </ThemedView>
       <ThemedView style={styles.outerView}>
         <View style={styles.innerView}>
           <IconSymbol size={32} name="video.badge.plus.fill" color="#ad7aff" />
-          <ThemedText type="subtitle">
-            Upload a video & add subtitles
-          </ThemedText>
+          <ThemedText type="subtitle">Upload video + captions</ThemedText>
         </View>
       </ThemedView>
     </SafeView>
