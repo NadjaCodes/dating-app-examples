@@ -9,9 +9,7 @@ import SafeView from "@/components/SafeView";
 export default function Profile() {
   return (
     <SafeView>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Profile</ThemedText>
-      </ThemedView>
+      <ThemedText type="title"> Profile</ThemedText>
       <ThemedView style={{ flexDirection: "row" }}>
         <Link href={"/profile/profilePictures"}>
           <View style={{ position: "relative" }}>
@@ -30,7 +28,7 @@ export default function Profile() {
             </View>
           </View>
         </Link>
-        <ThemedText type={"subtitle"}>Katharina, 27</ThemedText>
+        <ThemedText type={"subtitle"}>Christine, 27</ThemedText>
       </ThemedView>
       <InfoMessage
         text={

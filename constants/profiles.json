@@ -1,0 +1,119 @@
+[
+
+  {
+    "name": "Nick",
+    "liked": null,
+    "picture": "https://example.com/images/markus.jpg",
+    "prompts": [
+      {
+        "question": "My go-to karaoke song is…",
+        "answer": "Bohemian Rhapsody — I do *all* the parts."
+      },
+      {
+        "question": "My guilty pleasure TV show is…",
+        "answer": "Princess Charming. Don’t judge."
+      },
+      {
+        "question": "My perfect Sunday looks like…",
+        "answer": "Cooking pizza from scratch and inviting friends over."
+      }
+    ]
+  },
+  {
+    "name": "Lisa",
+    "liked": null,
+    "picture": "https://example.com/images/amira.jpg",
+    "prompts": [
+      {
+        "question": "One thing I can’t live without is…",
+        "answer": "My sketchbook."
+      },
+      {
+        "question": "If my life were a movie, the title would be…",
+        "answer": "A Series of Happy Accidents."
+      },
+      {
+        "question": "My comfort food is…",
+        "answer": "Spicy ramen."
+      }
+    ]
+  },
+  {
+    "name": "Selinay",
+    "liked": true,
+    "picture": "https://example.com/images/lena.jpg",
+    "prompts": [
+      {
+        "question": "My perfect Sunday looks like…",
+        "answer": "Sleeping in, brunch with friends, and a long walk by the river."
+      },
+      {
+        "question": "The emoji that sums me up is…",
+        "answer": "🌻"
+      },
+      {
+        "question": "If I could teleport anywhere right now…",
+        "answer": "Kyoto during cherry blossom season."
+      }
+    ],
+    "message": "Hey, I loved your profile! What's your favorite brunch spot?"
+  },
+  {
+    "name": "Christine",
+    "liked": true,
+    "picture": "https://example.com/images/lena.jpg",
+    "prompts": [
+      {
+        "question": "My perfect Sunday looks like…",
+        "answer": "Sleeping in, brunch with friends, and a long walk by the river🐶."
+      },
+      {
+        "question": "The emoji that sums me up is…",
+        "answer": "🌻"
+      },
+      {
+        "question": "If I could teleport anywhere right now…",
+        "answer": "Kyoto during cherry blossom season."
+      }
+    ],
+    "message": "Hey! Any chance you’ve been to Hamburg? 😉"
+  },
+  {
+    "name": "Anne",
+    "liked": null,
+    "picture": "https://example.com/images/jonas.jpg",
+    "prompts": [
+      {
+        "question": "The most ridiculous thing I’ve ever done is…",
+        "answer": "Joined a cheese-rolling competition in Wales."
+      },
+      {
+        "question": "Coffee or tea?",
+        "answer": "Tea. Always. I love a good fennel-anise-caraway tea, yummy"
+      },
+      {
+        "question": "My current obsession is…",
+        "answer": "Collecting vintage postcards."
+      }
+    ]
+  },
+  {
+    "name": "Katharina",
+    "liked": null,
+    "picture": "https://example.com/images/sofia.jpg",
+    "prompts": [
+      {
+        "question": "Something people are surprised to learn about me…",
+        "answer": "I can solve a Rubik’s cube in under a minute."
+      },
+      {
+        "question": "Sweet or savory?",
+        "answer": "I don't car - I just love Bread!! With everything."
+      },
+      {
+        "question": "If I could teleport anywhere right now…",
+        "answer": "A quiet cabin in the Alps."
+      }
+    ]
+  }
+]
