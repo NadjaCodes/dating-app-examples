@@ -19,7 +19,7 @@ type PicUploadSpotProps = {
 };
 
 // Functional upload spot using expo-image-picker
-export function PicUploadSpot({ style, onChange }: PicUploadSpotProps) {
+export default function PicUploadSpot({ style, onChange }: PicUploadSpotProps) {
   const [imageUri, setImageUri] = useState<string | null>(null);
   const [requesting, setRequesting] = useState(false);
   const [altText, setAltText] = useState<string>("");

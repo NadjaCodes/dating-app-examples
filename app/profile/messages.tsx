@@ -6,7 +6,7 @@ type MessagesProps = {
   profiles: Profile[];
 };
 
-export function Messages({ profiles }: MessagesProps) {
+export default function Messages({ profiles }: MessagesProps) {
   const data = (profiles || [])
     .filter((p) => p.liked === true && p.message) // only liked + has a message
     .map((p) => ({

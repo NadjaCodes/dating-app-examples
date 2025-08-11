@@ -41,7 +41,7 @@
   {
     "name": "Selinay",
     "liked": true,
-    "picture": "https://example.com/images/lena.jpg",
+    "picture": "https://de.m.wikipedia.org/wiki/Datei:A_Sunflower.jpg",
     "prompts": [
       {
         "question": "My perfect Sunday looks like…",
@@ -56,7 +56,7 @@
         "answer": "Kyoto during cherry blossom season."
       }
     ],
-    "message": "Hey, I loved your profile! What's your favorite brunch spot?"
+    "message": "Hey, I loved your profile! 🙈 What's your favorite brunch spot?"
   },
   {
     "name": "Christine",
