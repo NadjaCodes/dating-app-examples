@@ -28,7 +28,7 @@ export default function HomeScreen() {
 
   return (
     <SafeView>
-      <ThemedText type="title">Matches</ThemedText>
+      <ThemedText type="title"> Messages</ThemedText>
       <View style={styles.messageContainer}>
         <Messages profiles={profiles} />
       </View>

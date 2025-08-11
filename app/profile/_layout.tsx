@@ -18,7 +18,15 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen
           name="profilePictures"
-          options={{ headerShown: false, title: "Pictures" }}
+          options={{ headerShown: false, title: "" }}
+        />
+        <Stack.Screen
+          name="questions"
+          options={{ headerShown: false, title: "" }}
+        />
+        <Stack.Screen
+          name="settings"
+          options={{ headerShown: false, title: "" }}
         />
       </Stack>
       <StatusBar style="auto" />

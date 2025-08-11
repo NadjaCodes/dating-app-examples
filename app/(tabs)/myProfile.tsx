@@ -6,7 +6,7 @@ import { Link } from "expo-router";
 import InfoMessage from "@/components/InfoMessage";
 import SafeView from "@/components/SafeView";
 
-export default function Profile() {
+export default function MyProfile() {
   return (
     <SafeView>
       <ThemedText type="title"> Profile</ThemedText>
