@@ -11,7 +11,7 @@ export default function MyProfile() {
     <SafeView>
       <ThemedText type="title"> Profile</ThemedText>
       <ThemedView style={{ flexDirection: "row" }}>
-        <Link href={"/profile/profilePictures"}>
+        <Link href={"/Pictures/profilePictures"}>
           <View style={{ position: "relative" }}>
             <IconSymbol size={128} name="person.circle.fill" color="#D3D3D3" />
             <View
@@ -36,7 +36,7 @@ export default function MyProfile() {
         }
       />
       <ThemedView style={styles.outerView}>
-        <Link href={"/profile/questions"}>
+        <Link href={"/Questions/questions"}>
           <View style={styles.innerView}>
             <IconSymbol
               size={32}

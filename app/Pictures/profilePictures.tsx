@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
 import InfoMessage from "@/components/InfoMessage";
 import SafeView from "@/components/SafeView";
-import PicUploadSpot from "@/app/profile/picUploadSpot";
+import PicUploadSpot from "@/app/Pictures/picUploadSpot";
 
 export default function ProfilePictures() {
   const [hasA, setHasA] = useState(false);

@@ -2,7 +2,7 @@ import { View } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
 import SafeView from "@/components/SafeView";
 import InfoMessage from "@/components/InfoMessage";
-import FilterField, { FilterRule } from "@/app/profile/filterField";
+import FilterField, { FilterRule } from "@/app/Filters/filterField";
 import { useState } from "react";
 import { StyleSheet } from "react-native";
 

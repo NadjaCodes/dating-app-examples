@@ -12,7 +12,7 @@ export default function MatchingScreen() {
       <ThemedView style={styles.body}>
         <ThemedText type={"title"}> Matching</ThemedText>
       </ThemedView>
-      <Link href="/profile/settings" asChild style={styles.settingsBtn}>
+      <Link href="/Filters/settings" asChild style={styles.settingsBtn}>
         <Pressable
           hitSlop={10}
           accessibilityRole="button"
