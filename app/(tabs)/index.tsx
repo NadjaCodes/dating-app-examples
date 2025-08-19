@@ -1,75 +1,191 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
-
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import React, { useEffect, useRef, useState } from "react";
+import { StyleSheet, View, Text, Pressable, AppState } from "react-native";
+import { ThemedText } from "@/components/ThemedText";
+import SafeView from "@/components/SafeView";
+import profiles from "@/constants/profiles.json";
+import Messages from "@/app/profile/messages";
+import { IconSymbol } from "@/components/ui/IconSymbol";
+import InfoMessage from "@/components/InfoMessage";
 
 export default function HomeScreen() {
+  // Show on first mount and when app returns to foreground
+  const [showWelcome, setShowWelcome] = useState<boolean>(true);
+  const [identifyFlag, setIdentifyFlag] = useState<boolean>(false);
+  const appState = useRef(AppState.currentState);
+
+  useEffect(() => {
+    const sub = AppState.addEventListener("change", (nextState) => {
+      const wasBackground = /inactive|background/.test(appState.current ?? "");
+      if (wasBackground && nextState === "active") {
+        setShowWelcome(true);
+      }
+      appState.current = nextState;
+    });
+    return () => sub.remove();
+  }, []);
+
+  const dismissWelcome = () => setShowWelcome(false);
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <SafeView>
+      <ThemedText type="title"> Messages</ThemedText>
+      <View style={styles.messageContainer}>
+        <Messages profiles={profiles} />
+      </View>
+
+      {showWelcome && (
+        <View
+          style={styles.overlay}
+          accessibilityViewIsModal
+          accessible
+          accessibilityLabel="Welcome screen"
+        >
+          <View style={styles.card}>
+            <Pressable
+              onPress={dismissWelcome}
+              accessibilityRole="button"
+              accessibilityLabel="Close welcome"
+              style={styles.closeBtn}
+              hitSlop={12}
+            >
+              <IconSymbol size={24} name="x.circle.fill" color="#111" />
+            </Pressable>
+
+            <Text style={styles.title}>Welcome 👋</Text>
+            <Text style={styles.body}>
+              Optional: Would you like to share if you identify with any of
+              these communities? This helps us tailor safety tools. You can skip
+              and change this anytime in Settings.
+            </Text>
+            <Pressable
+              onPress={() => setIdentifyFlag((v) => !v)}
+              style={styles.checkboxRow}
+              accessibilityRole="checkbox"
+              accessibilityState={{ checked: identifyFlag }}
+              accessibilityLabel="I identify with one or more of the following communities: Disability, LGBTQIA+, or Other"
+              hitSlop={8}
+            >
+              <View
+                style={[
+                  styles.checkbox,
+                  identifyFlag && styles.checkboxChecked,
+                ]}
+              >
+                {identifyFlag ? (
+                  <IconSymbol size={16} name="checkmark" color="#fff" />
+                ) : null}
+              </View>
+              <Text style={styles.checkboxLabel}>
+                I identify with one or more of the following communities:{"\n"}
+                Disability/ LGBTQIA+,/Racialized minority or PoC/ Religious
+                minority/ Other
+              </Text>
+            </Pressable>
+
+            <InfoMessage
+              style={{ marginVertical: 12 }}
+              text={
+                "Your response is private and never shown on your profile. It’s used only for safety features, stored with your consent, and you can delete it anytime."
+              }
+            />
+            <Pressable
+              onPress={dismissWelcome}
+              style={styles.primaryBtn}
+              accessibilityRole="button"
+            >
+              <Text style={styles.primaryBtnText}>Got it</Text>
+            </Pressable>
+          </View>
+        </View>
+      )}
+    </SafeView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  messageContainer: {
+    marginTop: 20,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
+  overlay: {
+    position: "absolute",
+    top: 0,
+    right: 0,
     bottom: 0,
     left: 0,
-    position: 'absolute',
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 20,
+  },
+  card: {
+    width: "100%",
+    maxWidth: 420,
+    backgroundColor: "#fff",
+    borderRadius: 20,
+    padding: 20,
+    bottom: -220,
+    shadowColor: "#000",
+    shadowOpacity: 0.12,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 6 },
+    elevation: 4,
+  },
+  closeBtn: {
+    position: "absolute",
+    top: 12,
+    right: 12,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: "700",
+    marginTop: 8,
+    marginBottom: 8,
+  },
+  body: {
+    fontSize: 16,
+    color: "#444",
+    lineHeight: 22,
+    marginBottom: 12,
+  },
+  // checkbox styles
+  checkboxRow: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  checkbox: {
+    width: 22,
+    height: 22,
+    borderRadius: 6,
+    borderWidth: 1.5,
+    borderColor: "#999",
+    alignItems: "center",
+    justifyContent: "center",
+    marginRight: 10,
+    backgroundColor: "#fff",
+  },
+  checkboxChecked: {
+    backgroundColor: "#ad7aff",
+    borderColor: "#ad7aff",
+  },
+  checkboxLabel: {
+    flex: 1,
+    fontSize: 15,
+    color: "#222",
+  },
+  primaryBtn: {
+    alignSelf: "flex-end",
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    backgroundColor: "#ad7aff",
+    borderRadius: 12,
+  },
+  primaryBtnText: {
+    color: "#fff",
+    fontWeight: "600",
+    fontSize: 16,
   },
 });

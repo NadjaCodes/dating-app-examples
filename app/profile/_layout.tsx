@@ -12,26 +12,22 @@ import { useColorScheme } from "@/hooks/useColorScheme";
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
-  });
-
-  if (!loaded) {
-    // Async font loading only occurs in development.
-    return null;
-  }
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack
-        screenOptions={{
-          // iOS (native-stack): show only the chevron/arrow
-          headerBackButtonDisplayMode: "minimal",
-        }}
-      >
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="profile" options={{ title: "" }} />
-        <Stack.Screen name="+not-found" />
+      <Stack>
+        <Stack.Screen
+          name="profilePictures"
+          options={{ headerShown: false, title: "" }}
+        />
+        <Stack.Screen
+          name="questions"
+          options={{ headerShown: false, title: "" }}
+        />
+        <Stack.Screen
+          name="settings"
+          options={{ headerShown: false, title: "" }}
+        />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>
