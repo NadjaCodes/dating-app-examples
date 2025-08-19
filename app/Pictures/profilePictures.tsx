@@ -24,6 +24,8 @@ export default function ProfilePictures() {
             text={
               "Add a short description so everyone can enjoy your photos — including people using screen readers!"
             }
+            linkUrl="https://sc.edu/about/offices_and_divisions/digital-accessibility/toolbox/best_practices/alternative_text/step-by-step-instructions-alt-text/alt-text-examples/"
+            linkLabel="Check out some examples of alt texts here"
           />
         )}
       </View>

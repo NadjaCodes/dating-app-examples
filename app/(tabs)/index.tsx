@@ -83,7 +83,7 @@ export default function HomeScreen() {
             </Pressable>
 
             <InfoMessage
-              style={{ marginVertical: 24 }}
+              style={{ marginVertical: 12 }}
               text={
                 "Your response is private and never shown on your profile. It’s used only for safety features, stored with your consent, and you can delete it anytime."
               }
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderRadius: 20,
     padding: 20,
-    bottom: -200,
+    bottom: -220,
     shadowColor: "#000",
     shadowOpacity: 0.12,
     shadowRadius: 12,

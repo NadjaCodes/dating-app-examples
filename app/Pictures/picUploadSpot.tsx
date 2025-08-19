@@ -132,7 +132,7 @@ export default function PicUploadSpot({ style, onChange }: PicUploadSpotProps) {
         <View>
           <TextInput
             style={styles.altInput}
-            placeholder="Describe what's in your photo..."
+            placeholder="Photo description"
             value={altText}
             onChangeText={setAltText}
             numberOfLines={2}

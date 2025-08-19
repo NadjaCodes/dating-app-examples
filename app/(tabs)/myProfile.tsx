@@ -32,7 +32,7 @@ export default function MyProfile() {
       </ThemedView>
       <InfoMessage
         text={
-          "Complete 3 prompts to unlock your profile — your future match is already curious!"
+          "Complete 3 prompts to unlock your profile — your future match is already curious! \n Check out some examples of alt texts here:"
         }
       />
       <ThemedView style={styles.outerView}>
