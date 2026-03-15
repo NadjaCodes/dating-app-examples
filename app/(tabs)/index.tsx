@@ -53,8 +53,7 @@ export default function HomeScreen() {
 
             <Text style={styles.title}>Welcome 👋</Text>
             <Text style={styles.body}>
-              Optional: Would you like to share if you identify with any of
-              these communities? This helps us tailor safety tools. You can skip
+              Optional: Would you like to unlock additional safety features? You can skip
               and change this anytime in Settings.
             </Text>
             <Pressable
@@ -62,7 +61,7 @@ export default function HomeScreen() {
               style={styles.checkboxRow}
               accessibilityRole="checkbox"
               accessibilityState={{ checked: identifyFlag }}
-              accessibilityLabel="I identify with one or more of the following communities: Disability, LGBTQIA+, or Other"
+              accessibilityLabel="Yes, I want to unlock additional safety features."
               hitSlop={8}
             >
               <View
@@ -76,9 +75,7 @@ export default function HomeScreen() {
                 ) : null}
               </View>
               <Text style={styles.checkboxLabel}>
-                I identify with one or more of the following communities:{"\n"}
-                Disability/ LGBTQIA+,/Racialized minority or PoC/ Religious
-                minority/ Other
+                Yes, I want to unlock additional safety features.
               </Text>
             </Pressable>
 
