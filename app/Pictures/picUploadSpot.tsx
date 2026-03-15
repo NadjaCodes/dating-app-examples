@@ -123,7 +123,7 @@ export default function PicUploadSpot({ style, onChange }: PicUploadSpotProps) {
           ) : (
             <>
               <IconSymbol name={"plus"} color={"#808080"} />
-              <Text style={styles.subText}>Tap to upload photo</Text>
+              <Text style={styles.subText}>Tap to upload accessible photo</Text>
             </>
           )}
         </View>
@@ -142,7 +142,7 @@ export default function PicUploadSpot({ style, onChange }: PicUploadSpotProps) {
             autoCapitalize="sentences"
           />
           <Text style={styles.altHelp}>
-            Example: "Me smiling with my favorite food — sushi."
+            Example: "Me smiling (with brown hair and brown eyes) while eating my favorite food, sushi."
           </Text>
         </View>
       )}
@@ -202,6 +202,7 @@ const styles = StyleSheet.create({
     opacity: 0.8,
     marginTop: 4,
     fontSize: 14,
+    textAlign: "center",
   },
   hintText: {
     opacity: 0.6,

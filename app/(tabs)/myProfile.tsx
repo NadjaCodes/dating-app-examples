@@ -32,7 +32,7 @@ export default function MyProfile() {
       </ThemedView>
       <InfoMessage
         text={
-          "Complete 3 prompts to unlock your profile — your future match is already curious! \n Check out some examples of alt texts here:"
+          "Consider completing 3 prompts to widen your profile’s reach among diverse participants. Your future match is already curious!"
         }
       />
       <ThemedView style={styles.outerView}>
@@ -43,7 +43,7 @@ export default function MyProfile() {
               name="questionmark.circle.fill"
               color="#ad7aff"
             />
-            <ThemedText type="subtitle">Answer prompts</ThemedText>
+            <ThemedText type="subtitle">Answer questions</ThemedText>
           </View>
         </Link>
       </ThemedView>
@@ -56,7 +56,7 @@ export default function MyProfile() {
       <ThemedView style={styles.outerView}>
         <View style={styles.innerView}>
           <IconSymbol size={32} name="video.badge.plus.fill" color="#ad7aff" />
-          <ThemedText type="subtitle">Upload video + captions</ThemedText>
+          <ThemedText type="subtitle">Upload video with captions</ThemedText>
         </View>
       </ThemedView>
     </SafeView>
@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
   innerView: {
     flexDirection: "row",
     gap: 8,
+    alignItems: "center",
   },
   titleContainer: {
     flexDirection: "row",
