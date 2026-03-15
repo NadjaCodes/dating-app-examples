@@ -25,10 +25,7 @@ export default function Settings() {
       <ThemedText type={"title"}>Your filters & preferences</ThemedText>
       <InfoMessage
         text={
-          "How matching suggestions work:\n" +
-          "• We match your must-haves first\n" +
-          "• Then we consider your nice-to-haves\n" +
-          "• We prioritize recent activity (last 7 days)"
+          "Remember that you are free to change your preferences anytime. You can also control whether these preferences are visible to others."
         }
       />
       <View style={styles.section}>

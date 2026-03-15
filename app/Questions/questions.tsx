@@ -5,9 +5,9 @@ import { View, Text, StyleSheet, Pressable, ScrollView } from "react-native";
 export type CategoryKey = "about" | "disabilities" | "lgtbq" | "more";
 
 const PILLS: { key: CategoryKey; label: string }[] = [
-  { key: "about", label: "about me" },
-  { key: "disabilities", label: "disabilities" },
-  { key: "lgtbq", label: "LGTBQIA+" },
+  { key: "about", label: "Visible on my profile" },
+  { key: "disabilities", label: "Remind me later" },
+  { key: "lgtbq", label: "Never ask me this questiion" },
   { key: "more", label: "story time" },
 ];
 
