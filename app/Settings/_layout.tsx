@@ -16,6 +16,10 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack>
+        <Stack.Screen
+          name="a11ySettings"
+          options={{ headerShown: false, title: "" }}
+        />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>

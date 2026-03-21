@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { IconSymbol } from "@/components/ui/IconSymbol";
@@ -9,7 +9,18 @@ import SafeView from "@/components/SafeView";
 export default function MyProfile() {
   return (
     <SafeView>
+    <View style={{ flexDirection: "row", justifyContent: 'space-between',}}>
       <ThemedText type="title"> Profile</ThemedText>
+      <Link href="/Settings/a11ySettings" asChild style={styles.settingsBtn}>
+        <Pressable
+            hitSlop={10}
+            accessibilityRole="button"
+            accessibilityLabel="Open settings"
+          >
+            <IconSymbol size={32} name="gearshape.fill" color="#111" />
+        </Pressable>
+      </Link>
+      </View>
       <ThemedView style={{ flexDirection: "row" }}>
         <Link href={"/Pictures/profilePictures"}>
           <View style={{ position: "relative" }}>
