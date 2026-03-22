@@ -9,6 +9,12 @@ export type FilterAttribute =
   | "no_kids"
   | "open_to_disability";
 
+  const VISIBILITY_OPTIONS = [
+    { key: "profile", icon: "eye.fill", label: "Visible in \n Profile" },
+    { key: "match", icon: "person.2.fill", label: "Visible after \n Match" },
+    { key: "never", icon: "nosign", label: "Hide \nPreference" },
+  ];
+
 export type FilterRule = {
   level: RequirementLevel;
   attribute: FilterAttribute | null;
@@ -37,6 +43,8 @@ export default function FilterField({
   title = "Partner preference filter",
 }: Props) {
   const [open, setOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("profile");
+
 
   const selectedLabel =
     attributes.find((a) => a.value === value.attribute)?.label ??
@@ -121,6 +129,38 @@ export default function FilterField({
             })}
           </View>
         )}
+
+    <View style={styles.optionsContainer}>
+                        {VISIBILITY_OPTIONS.map((opt) => {
+                          const isSelected = selectedOption === opt.key;
+
+                          return (
+                            <Pressable
+                              key={opt.key}
+                              onPress={() => setSelectedOption(opt.key)}
+                              style={[
+                                styles.optionButton,
+                                isSelected && styles.optionSelected,
+                              ]}
+                            >
+                              <IconSymbol
+                                size={18}
+                                name={opt.icon}
+                                color={isSelected ? "#ffffff" : "#6B7280"}
+                              />
+                              <Text
+                                style={[
+                                  styles.optionText,
+                                  isSelected && styles.optionTextSelected,
+                                ]}
+                              >
+                                {opt.label}
+                              </Text>
+                            </Pressable>
+                          );
+                        })}
+                      </View>
+
       </View>
     </View>
   );
@@ -215,4 +255,43 @@ const styles = StyleSheet.create({
   menuItemActive: { backgroundColor: "#f5f1ff" },
   menuItemText: { fontSize: 15, color: "#222" },
   menuItemTextActive: { fontWeight: "600" },
+      optionsContainer: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        marginTop: 12,
+        gap: 8,
+      },
+
+      optionButton: {
+        flex: 1,
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 6,
+        paddingVertical: 10,
+        borderRadius: 10,
+        backgroundColor: "#F3F4F6",
+        borderWidth: 1,
+        borderColor: "#E5E7EB",
+      },
+
+      optionSelected: {
+        backgroundColor: "#ad7aff",
+        borderColor: "#ad7aff",
+      },
+
+      optionText: {
+        fontSize: 12,
+        color: "#6B7280",
+        textAlign: "left"
+      },
+
+      optionTextSelected: {
+        color: "#ffffff",
+        fontWeight: "600",
+      },
+      optionTextSelected: {
+        color: "#ffffff",
+        fontWeight: "600",
+      },
 });
